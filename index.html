@@ -1,52 +1,59 @@
-<!doctype html>
-<html>
-    <head>
-        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-        <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
-        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
-    </head>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>WebAR Sea Turtle</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <body style="margin: 0; overflow: hidden;">
-        <a-scene
-            vr-mode-ui="enabled: false;"
-            loading-screen="enabled: false;"
-            renderer="logarithmicDepthBuffer: true;"
-            arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
-            id="scene"
-            embedded
-            gesture-detector
-        >
-            <a-assets>
-                <a-asset-item
-                    id="animated-asset"
-                    src="assets/asset.glb"
-                ></a-asset-item>
-            </a-assets>
+    <link rel="stylesheet" href="./styles.css">
+    
+   
+ <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.js"></script>
+ <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+ <script src="https://unpkg.com/resize-observer-polyfill@1.5.0/dist/ResizeObserver.js"></script> 
+ <script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
 
-            <a-marker
-                id="animated-marker"
-                type="pattern"
-                preset="custom"
-                url="assets/marker.patt"
-                raycaster="objects: .clickable"
-                emitevents="true"
-                cursor="fuse: false; rayOrigin: mouse;"
-                id="markerA"
-            >
-                <a-entity
-                    id="bowser-model"
-                    scale="0.27277291819174254 0.27277291819174254 0.27277291819174254"
-                    animation-mixer="loop: repeat"
-                    gltf-model="#animated-asset"
-                    class="clickable"
-                    gesture-handler
-                ></a-entity>
-            </a-marker>
+  </head> 
+<body>
+  <div class="row">
+  <div id="card">
+    <model-viewer camera-controls touch-action="pan-y" 
+                  autoplay ar ar-modes="webxr scene-viewer" 
+                  scale="0.2 0.2 0.2" 
+                  shadow-intensity="0"
+                  src="assets/asset.glb"
+                  ios-src="assets/asset.usdz"
+                  alt="A 3D model of Sea Turtle">
 
-            <a-entity camera></a-entity>
-        </a-scene>
+    </model-viewer>
+ <section class="attribution">
+      <span>
+        <h1>Sea TurtleXR</h1>
+        <span>Click AR if you device not support XR<a href="https://oceanariummelaka.github.io/seaturtleplus/" target="_blank"><h1>AR</h1></a></span>Then point your device to QR Marker and move it slowly.
+<p><h2>LeatherBack Turtle Fact</h2><br> Unlike all other marine turtles, the leatherback turtle does not have a hard shell. Leatherback is the only sea turtle that lacks a hard shell. Its carapace is large, elongated and flexible with 7 distinct ridges running the length of the animal. 
+<br> Composed of a layer of thin, tough, rubbery skin, strengthened by thousands of tiny bone plates, the carapace does not have scales, except in hatchlings.
+<br> Leatherbacks Feed on Jellyfish and Other Soft-Bodied Creatures. It is remarkable that this large, active animal can survive on a diet of jellyfish, which are composed mostly of water and appear to be a poor source of nutrients. </p>
+<p>Click🔈if sound not load<a href="https://oceanariummelaka.github.io/seaturtle/" target="_blank"><h1>🔈</h1></a></p>
+      </span>
+
+     </section>
+  
+  <!-- 💁 Include both scripts below to support all browsers! -->
+
+  <!-- Loads <model-viewer> for modern browsers: -->
+  <script type="module"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+  </script>
+
+  <!-- Loads <model-viewer> for old browsers like IE11: -->
+  <script nomodule
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js">
+  </script>
 <audio src="music.mp3" autoplay loop></audio>
+<footer>
+     <p>WebAR Coral Wonderland © 2023</p>
+    </footer>
+    </body>
     </body>
 </html>
